@@ -31,6 +31,11 @@ const reducer=(state=initialState, action)=>{
             return {
                 tasks:[...state.tasks].filter((t)=>t.id !== action.payload)
             }
+            case  "FilterTask" :
+                 
+            return {
+                tasks:[...state.tasks].filter((t)=>t.isDone===action.payload)
+            }
 
             
             default :

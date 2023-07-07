@@ -2,6 +2,7 @@
 import './App.css';
 import TaskList from './Components/TaskList';
 import AddTask from './Components/AddTask';
+import FilterTask from './Components/FilterTask';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <h1>Hello </h1> 
       <TaskList  />
       <AddTask />
+      <FilterTask />
     </div>
   );
 }

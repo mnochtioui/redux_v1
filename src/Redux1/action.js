@@ -27,3 +27,11 @@ export const deleteTask= (ind)=>{
     }
 }
 
+export const filterTask= (trueOrFalse)=>{
+    return {
+        type: "FilterTask",
+        payload: trueOrFalse
+        
+    }
+}
+
