@@ -1,10 +1,20 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { checkTask, deleteTask } from '../Redux1/action';
+import { Button } from 'react-bootstrap';
+import ModifTask  from './ModifTask';
 
-const Task = (t) => {
+const Task = ({t}) => {
+    const dispatch=useDispatch()
+
   return (
-    <div id={t.id} >
-            <p>{t.description}</p>
-            <input className='pull-right' type="checkbox" value={t.isDone} />
+    <div key={t.id}  className="d-flex justify-content-between align-items-start" >
+            <input className='pull-left' type="checkbox"  onClick={()=>{dispatch(checkTask(t.id))}} defaultChecked={t.isDone} />
+            <h5>{t.description}</h5>
+             
+            <Button  onClick={()=>{dispatch(deleteTask(t.id)) }} >Fassa5</Button>
+            <ModifTask props={t} />
+             {/* <Button  onClick={()=>{dispatch(modifTask(t.id)) }} >Editer</Button> */}
     </div>
   )
 }

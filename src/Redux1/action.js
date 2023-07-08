@@ -35,3 +35,15 @@ export const filterTask= (trueOrFalse)=>{
     }
 }
 
+export const modifTask= (task)=>{
+    return {
+        type: "ModifTask",
+        payload: {
+            id: task.id,
+            description: task.description
+
+        }
+        
+    }
+}
+

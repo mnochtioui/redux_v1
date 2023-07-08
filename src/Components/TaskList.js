@@ -1,29 +1,29 @@
 import React from 'react'
 import ListGroup from 'react-bootstrap/ListGroup'
-import Badge from 'react-bootstrap/Badge';
-import { useDispatch, useSelector } from 'react-redux'
-import { checkTask, deleteTask } from '../Redux1/action';
-import { Button } from 'react-bootstrap';
+ 
+import { useSelector } from 'react-redux'
+//import { checkTask, deleteTask, modifTask } from '../Redux1/action';
+
+
+import Task from './Task';
  
 const TaskList = () => {
 
     const tasks=useSelector((state)=>state.reducer.tasks)
      
-    const dispatch=useDispatch()
+    //const dispatch=useDispatch()
 
   return (
 
     <div>
          <ListGroup as="ol" >
-       {tasks.map((t)=>{
+       {tasks.map((t, index)=>{
         return (
             
-           <ListGroup.Item key={t.id}  as="li" variant="success" >
-            <br></br><i>{t.id}</i>
-            <p>{t.description}</p>
-            <Button style={{marginLeft: "85%"}} onClick={()=>{dispatch(deleteTask(t.id)) }} >Fassa5</Button><br></br>
-            <Badge className="float-end" bg="warning" pill>
-           <input className='check'  type="checkbox"  onClick={()=>{dispatch(checkTask(t.id))}} /></Badge>
+           <ListGroup.Item    as="li" variant="success" >
+             
+            <Task t={t} key={index} />  
+            
            </ListGroup.Item>
            
         )
